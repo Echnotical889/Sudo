@@ -1,0 +1,13 @@
+name: Sudo
+version: 1.0.0
+api: [3.6.0]
+author: MagmaCreeperYT
+main: MagmaCreeperYT\Sudo\Main
+commands:
+  sudo:
+    description: Force a player to chat or run a command
+    usage: /sudo <player> <command | c:message> 
+permissions:
+  sudo.command:
+    default: op
+    description: Allows player to use /sudo
