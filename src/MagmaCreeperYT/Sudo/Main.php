@@ -12,10 +12,6 @@ use pocketmine\utils\TextFormat as c;
 
 class Main extends PluginBase implements Listener {
 
-    public function onEnable(){
-        $this->getLogger()->notice(c::GREEN." Sudo plugin has been enabled.");
-    }
-
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
         if($command->getName() === "sudo"){
             if(!$sender->hasPermission("sudo.command")){
