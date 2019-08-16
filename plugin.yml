@@ -7,6 +7,7 @@ commands:
   sudo:
     description: Force a player to chat or run a command
     usage: /sudo <player> <message | /command>
+    permission: sudo.command
 permissions:
   sudo.command:
     default: op
