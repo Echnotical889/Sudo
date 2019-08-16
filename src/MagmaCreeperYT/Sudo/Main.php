@@ -13,7 +13,10 @@ class Main extends PluginBase implements Listener {
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
         if($command->getName() === "sudo"){
-            if(count($args) < 2){
+            if(!$sender->hasPermission("sudo.command")){
+                $sender->sendMessage("§cYou don't have permission to use this command!");
+                return true;
+            }elseif(count($args) < 2){
                 $sender->sendMessage("§cUsage: /sudo <player> <message | /command>");
                 return true;
             }elseif(($player = $this->getServer()->getPlayer(array_shift($args))) === null){
