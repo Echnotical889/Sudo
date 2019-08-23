@@ -3,13 +3,10 @@
 namespace MagmaCreeperYT\Sudo;
 
 use pocketmine\plugin\PluginBase;
-use pocketmine\event\Listener;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
-use pocketmine\Player;
-use pocketmine\Server;
 
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase {
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
         if($command->getName() === "sudo"){
@@ -23,7 +20,15 @@ class Main extends PluginBase implements Listener {
                 $sender->sendMessage("§cPlayer not found!");
                 return true;
             }else{
-                $player->chat(implode(" ", $args));
+                $argss = "";
+                foreach($args as $arg){
+                    if(strpos($arg, " ") !== false){
+                        $argss = $argss."\"".$arg."\" ";
+                    }else{
+                        $argss = $argss.$arg." ";
+                    }
+                }
+                $player->chat($argss);
                 return true;
             }
         }
